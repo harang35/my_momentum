@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-size: cover; /*배경을 화면에 꽉 채우기*/
@@ -8,12 +9,22 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+}
+section {
+  display: flex;
   align-items: center;
+  min-height: 100vh;
   position: relative;
 }
 .momentum {
   width: 700px;
   height: 450px;
+}
+#dates {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  height: 35px;
 }
 #time {
   font-size: 120px;
@@ -31,79 +42,101 @@ body {
   color: white;
   text-align: center;
 }
-#todo_todo {
+#todo_img {
+  position: absolute;
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  color: white;
+}
+#todo_container {
   width: 250px;
   height: 250px;
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  background-color: whitesmoke;
+  position: fixed;
+  right: 15px;
+  bottom: 67px;
+  display: none;
   border-radius: 10px;
   padding: 10px;
+  background: rgba(255, 255, 255, 0.8); /* 반투명색 배경 */
 }
-#title {
-  font-size: 25px;
+h2 {
+  font-size: 22px;
   color: rgb(107, 104, 104);
 }
-#todo_input {
+/*입력창과 버튼 한줄 정렬*/
+.input-container {
   display: flex;
-}
-#input0 {
+  justify-content: space-between;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 #input_box {
-  width: 180px;
+  width: 220px;
   height: 20px;
+  flex: 1;
+  padding: 2px;
   font-size: 11px;
-  border: 1px solid rgb(214, 214, 214);
+  border-radius: 5px;
+  border: 1px solid rgb(184, 182, 182);
 }
-#addBtn {
+button {
   width: 20px;
   height: 20px;
-  margin-top: 12px;
+  padding: 12px;
   color: rgb(141, 141, 141);
+  background-color: white;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-left: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(219, 218, 218);
 }
-#todo_list {
-  display: flex;
-  justify-content: center;
+.del {
+  font-size: 13px;
+  border-radius: 5px;
+  color: rgb(147, 147, 149);
 }
 ul {
   list-style: none;
-  width: 180px;
+  width: 260px;
   height: 20px;
-  font-size: 18px;
+  font-size: 13px;
 }
 li {
-  color: rgb(253, 250, 250);
+  color: rgb(111, 110, 110);
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px;
 }
-/* 체크 박스*/
-.completed {
+/* 체크 박스 완료시 줄 긋기*/
+.completed span {
   text-decoration: line-through;
   color: rgb(178, 175, 175);
 }
-.del {
-  color: yellow;
-  background-color: rgb(174, 173, 175);
-  font-size: 15px;
-  border: 0;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+#greeting {
+  margin-top: 20px;
+  font-size: 60px;
 }
-.del:hover {
-  /* 커서와 버튼색 변경*/
-  cursor: pointer;
-  background-color: rgb(98, 97, 99);
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 700px;
+  height: 30px;
+  border-radius: 50px;
+  background: rgba(6, 6, 6, 0.1);
+  margin-bottom: 10px;
+}
+#foot {
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  padding: 5px;
 }
