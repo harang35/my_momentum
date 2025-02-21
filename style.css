@@ -102,7 +102,8 @@ input::placeholder {
   text-align: center;
   margin-top: 25px;
 }
-#todo_input {
+/*입력창과 버튼 한줄 정렬*/
+.input-container {
   display: flex;
   justify-content: center;
   align-items: center;
