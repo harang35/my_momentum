@@ -1,22 +1,57 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-size: cover; /*배경을 화면에 꽉 채우기*/
   background-position: center; /*배경 가운데 정렬*/
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  position: relative;
+  text-align: center;
+}
+#weather {
+  position: absolute;
+  color: white;
+  width: 120px;
+  font-size: 18;
+  right: 1px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.icon {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  right: 45px;
+  top: 50px;
+}
+section {
+  display: flex;
+  justify-content: center;
   align-items: center;
+  min-height: 100vh;
   position: relative;
 }
 .momentum {
-  width: 700px;
+  width: 600px;
   height: 450px;
 }
+#dates {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  height: 35px;
+}
 #time {
-  font-size: 120px;
+  font-size: 122px;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -25,85 +60,182 @@ body {
   font-size: 75px;
   color: white;
   text-align: center;
+  max-width: 85%; /* 최대 너비 설정 반응형 디자인 구현 */
+  margin: 10px auto;
 }
-.today {
-  font-size: 57px;
+#greeting {
+  margin-top: 10px;
+  font-size: 47px;
+}
+#input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#nameInput {
+  border: none; /* 테두리 없음 */
+  border-bottom: 2px solid rgb(223, 223, 223); /* 아래쪽에만 라인 */
+  background-color: transparent; /* 배경 투명 */
+  font-size: 15px;
+  text-align: center;
+  outline: none; /* 포커스 시 테두리 없음 */
+  width: 150px;
+  color: white;
+  margin-right: 5px;
+}
+input::placeholder {
+  color: rgb(247, 244, 244);
+}
+#nameButton {
+  border-radius: 55px;
+  border-color: white;
+  background-color: transparent; /*배경 투명*/
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+  cursor: pointer; /* 마우스 커서 변경 */
+}
+#today_todo {
+  font-size: 35px;
   color: white;
   text-align: center;
-}
-#todo_todo {
-  width: 250px;
-  height: 250px;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  padding: 10px;
-}
-#title {
-  font-size: 25px;
-  color: rgb(107, 104, 104);
+  margin-top: 25px;
 }
 #todo_input {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-#input0 {
+#to_input {
+  border: none; /* 테두리 없음 */
+  border-bottom: 2px solid rgb(223, 223, 223); /* 아래쪽에만 라인 */
+  background-color: transparent; /* 배경 투명 */
+  font-size: 15px;
+  text-align: center;
+  outline: none; /* 포커스 시 테두리 없음 */
+  width: 150px;
+  color: white;
+  margin-right: 5px;
+}
+#todayButton {
+  border-radius: 55px;
+  border-color: white;
+  background-color: transparent; /*배경 투명*/
+  font-size: 12px;
+  color: white;
+  padding: 10px;
+  cursor: pointer; /* 마우스 커서 변경 */
+}
+/*입력창과 버튼 한줄 정렬*/
+#today_input {
+  width: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#todo_img {
+  position: absolute;
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  color: white;
+  cursor: pointer;
+}
+#todo_img p {
+  color: white;
+  font-size: 10px;
+}
+#todo_container {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  position: fixed;
+  right: 15px;
+  bottom: 72px;
+  display: none;
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8); /* 반투명색 배경 */
+}
+h2 {
+  font-size: 22px;
+  color: rgb(107, 104, 104);
+}
+/*입력창과 버튼 한줄 정렬*/
+.todo_input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 #input_box {
-  width: 180px;
+  width: 220px;
   height: 20px;
+  flex: 1; /*가변크기*/
+  padding: 2px;
   font-size: 11px;
-  border: 1px solid rgb(214, 214, 214);
+  border-radius: 5px;
+  border: 1px solid rgb(184, 182, 182);
 }
-#addBtn {
+button {
   width: 20px;
   height: 20px;
-  margin-top: 12px;
+  padding: 12px;
   color: rgb(141, 141, 141);
+  background-color: white;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-left: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(219, 218, 218);
 }
-#todo_list {
-  display: flex;
-  justify-content: center;
+.del {
+  font-size: 13px;
+  border-radius: 5px;
+  color: rgb(147, 147, 149);
 }
 ul {
   list-style: none;
-  width: 180px;
+  width: 240px;
   height: 20px;
-  font-size: 18px;
+  font-size: 13px;
 }
 li {
-  color: rgb(253, 250, 250);
+  color: rgb(111, 110, 110);
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px;
+  display: block; /* 블록 요소로 만들어 줄 바꿈 */
+  word-wrap: break-word; /* 단어 단위로 줄 바꿈 */
 }
-/* 체크 박스*/
-.completed {
+/* 체크 박스 완료시 줄 긋기*/
+.completed span {
   text-decoration: line-through;
   color: rgb(178, 175, 175);
 }
-.del {
-  color: yellow;
-  background-color: rgb(174, 173, 175);
-  font-size: 15px;
-  border: 0;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 430px;
+  height: 30px;
+  border-radius: 50px;
+  background: rgba(6, 6, 6, 0.1);
+  margin-bottom: 2px;
 }
-.del:hover {
-  /* 커서와 버튼색 변경*/
-  cursor: pointer;
-  background-color: rgb(98, 97, 99);
+#foot {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  padding: 5px;
 }
